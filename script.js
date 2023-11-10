@@ -91,29 +91,31 @@ var upperCasedCharacters = [
 // Function to prompt user for password options
 function getPasswordOptions() {
 
-  let password_options = {};
+  let pwOptions = {};
 
-  password_options.length = parseInt(prompt("How long should your password be? (enter a number between 8 and 128): "));
+  pwOptions.length = parseInt(prompt("How long should your password be? (enter a number between 8 and 128): "));
 
   while ((password_options.length > 128) || (password_options.length < 8)) {
     alert("Your password length must be between 8 and 128 characters. Please try again. ");
     pw_length = parseInt(prompt("How long should your password be? (enter a number between 8 and 128): "));
   }
 
-  password_options.pw_lowercase = prompt("Should the password use lower-case characters? Y/N: ");
-  password_options.pw_uppercase = prompt("Should the password use upper-case characters? Y/N: "); 
-  password_options.pw_numerals =prompt("Should the password use numerals? Y/N: ");
-  password_options.pw_specials =prompt("Should the password use special characters ? Y/N: ");
+  pwOptions.pwLowercase = prompt("Should the password use lower-case characters? Y/N: ");
+  pwOptions.pwUppercase = prompt("Should the password use upper-case characters? Y/N: "); 
+  pwOptions.pwNumerals =prompt("Should the password use numerals? Y/N: ");
+  pwOptions.pwSpecials =prompt("Should the password use special characters ? Y/N: ");
   
   // check for nonsense Input
   // check at least one character type has been selected
 
-  return password_options;
+  return pwOptions;
 
 }
 
 // Function for getting a random element from an array
 function getRandom(arr) {
+  let randomArr = arr[Math.floor(Math.random()*arr.length)];
+  return randomArr;
 
 }
 
