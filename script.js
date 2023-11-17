@@ -104,7 +104,6 @@ function getPasswordOptions() {
 
   // get user password length, check for nonsense input
   pwOptions.length = parseInt(prompt("How long should your password be? (enter a number between 8 and 128): "));
-  console.log(pwOptions.length);
   while (pwOptions.length > 128 || pwOptions.length < 8 || Number.isNaN(pwOptions.length)) {
     alert("Your password length must be a number between 8 and 128. Please try again. ");
     pwOptions.length = parseInt(prompt("How long should your password be? (enter a number between 8 and 128): "));
@@ -114,7 +113,6 @@ function getPasswordOptions() {
 
   // get user password options and check for nonsense input
     pwOptions.pwLowercase = prompt("Should the password use lower-case characters? Y/N: ").toUpperCase();
-    console.log(pwOptions.pwLowercase);
     while (pwOptions.pwLowercase != "Y" && pwOptions.pwLowercase != "N") {
       alert("You must enter Y or N. Please try again.");
       pwOptions.pwLowercase = prompt("Should the password use lower-case characters? Y/N: ").toUpperCase();
