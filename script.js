@@ -100,42 +100,48 @@ function checkTextInput (text) {
 function getPasswordOptions() {
 
   let pwOptions = {};
+  let noOptionChosen = true;
 
-  // get user password length and check for nonsense input
+  // get user password length, check for nonsense input
   pwOptions.length = parseInt(prompt("How long should your password be? (enter a number between 8 and 128): "));
-  while (pwOptions.length > 128 || pwOptions.length < 8) {
-    alert("Your password length must be between 8 and 128 characters. Please try again. ");
-    pw_length = parseInt(prompt("How long should your password be? (enter a number between 8 and 128): "));
+  console.log(pwOptions.length);
+  while (pwOptions.length > 128 || pwOptions.length < 8 || Number.isNaN(pwOptions.length)) {
+    alert("Your password length must be a number between 8 and 128. Please try again. ");
+    pwOptions.length = parseInt(prompt("How long should your password be? (enter a number between 8 and 128): "));
   }
+
+  while (noOptionChosen) {
 
   // get user password options and check for nonsense input
-  pwOptions.pwLowercase = prompt("Should the password use lower-case characters? Y/N: ").toUpperCase();
-  while (text != "Y" || text != "N") {
-    alert("You must enter Y or N. Please try again.");
     pwOptions.pwLowercase = prompt("Should the password use lower-case characters? Y/N: ").toUpperCase();
-  }
+    while (text != "Y" || text != "N") {
+      alert("You must enter Y or N. Please try again.");
+      pwOptions.pwLowercase = prompt("Should the password use lower-case characters? Y/N: ").toUpperCase();
+    }
 
-  pwOptions.pwUppercase = prompt("Should the password use upper-case characters? Y/N: ").toUpperCase();
-  while (text != "Y" || text != "N") {
-    alert("You must enter Y or N. Please try again.");
     pwOptions.pwUppercase = prompt("Should the password use upper-case characters? Y/N: ").toUpperCase();
-  }
+    while (text != "Y" || text != "N") {
+      alert("You must enter Y or N. Please try again.");
+      pwOptions.pwUppercase = prompt("Should the password use upper-case characters? Y/N: ").toUpperCase();
+    }
 
-  pwOptions.pwNumerals = prompt("Should the password use numerals? Y/N: ").toUpperCase();
-  while (text != "Y" || text != "N") {
-    alert("You must enter Y or N. Please try again.");
     pwOptions.pwNumerals = prompt("Should the password use numerals? Y/N: ").toUpperCase();
-  }
+    while (text != "Y" || text != "N") {
+      alert("You must enter Y or N. Please try again.");
+      pwOptions.pwNumerals = prompt("Should the password use numerals? Y/N: ").toUpperCase();
+    }
 
-  pwOptions.pwSpecials = prompt("Should the password use special characters ? Y/N: ").toUpperCase();
-  while (text != "Y" || text != "N") {
-    alert("You must enter Y or N. Please try again.");
     pwOptions.pwSpecials = prompt("Should the password use special characters ? Y/N: ").toUpperCase();
+    while (text != "Y" || text != "N") {
+      alert("You must enter Y or N. Please try again.");
+      pwOptions.pwSpecials = prompt("Should the password use special characters ? Y/N: ").toUpperCase();
+    }
+
+     //check at least one character type has been selected
+    Object.values(pwOptions).includes("Y") ? noOptionChosen = false : noOptionChosen = true;
   }
+ 
   
-
-
-  // TODO: check at least one character type has been selected
 
   return pwOptions;
 
