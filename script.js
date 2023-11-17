@@ -88,24 +88,53 @@ var upperCasedCharacters = [
   'Z'
 ];
 
+
+//helper function to check input
+function checkTextInput (text) {
+  while (text != "Y" || text != "N") {
+    alert("Your password length must be between 8 and 128 characters. Please try again. ");
+  }
+}
+
 // Function to prompt user for password options
 function getPasswordOptions() {
 
   let pwOptions = {};
 
+  // get user password length and check for nonsense input
   pwOptions.length = parseInt(prompt("How long should your password be? (enter a number between 8 and 128): "));
-
-  while ((pwOptions.length > 128) || (pwOptions.length < 8)) {
+  while (pwOptions.length > 128 || pwOptions.length < 8) {
     alert("Your password length must be between 8 and 128 characters. Please try again. ");
     pw_length = parseInt(prompt("How long should your password be? (enter a number between 8 and 128): "));
   }
 
-  pwOptions.pwLowercase = prompt("Should the password use lower-case characters? Y/N: ");
-  pwOptions.pwUppercase = prompt("Should the password use upper-case characters? Y/N: "); 
-  pwOptions.pwNumerals =prompt("Should the password use numerals? Y/N: ");
-  pwOptions.pwSpecials =prompt("Should the password use special characters ? Y/N: ");
+  // get user password options and check for nonsense input
+  pwOptions.pwLowercase = prompt("Should the password use lower-case characters? Y/N: ").toUpperCase();
+  while (text != "Y" || text != "N") {
+    alert("You must enter Y or N. Please try again.");
+    pwOptions.pwLowercase = prompt("Should the password use lower-case characters? Y/N: ").toUpperCase();
+  }
+
+  pwOptions.pwUppercase = prompt("Should the password use upper-case characters? Y/N: ").toUpperCase();
+  while (text != "Y" || text != "N") {
+    alert("You must enter Y or N. Please try again.");
+    pwOptions.pwUppercase = prompt("Should the password use upper-case characters? Y/N: ").toUpperCase();
+  }
+
+  pwOptions.pwNumerals = prompt("Should the password use numerals? Y/N: ").toUpperCase();
+  while (text != "Y" || text != "N") {
+    alert("You must enter Y or N. Please try again.");
+    pwOptions.pwNumerals = prompt("Should the password use numerals? Y/N: ").toUpperCase();
+  }
+
+  pwOptions.pwSpecials = prompt("Should the password use special characters ? Y/N: ").toUpperCase();
+  while (text != "Y" || text != "N") {
+    alert("You must enter Y or N. Please try again.");
+    pwOptions.pwSpecials = prompt("Should the password use special characters ? Y/N: ").toUpperCase();
+  }
   
-  // TODO: check for nonsense Input
+
+
   // TODO: check at least one character type has been selected
 
   return pwOptions;
@@ -123,17 +152,17 @@ function generatePassword(pwOptions) {
   let pwCharArray = [];
   let password = "";
 
-  //maybe switch / case ?
+  //TODO: maybe switch / case ?
   if (pwOptions.pwLowercase == "Y") {
     pwCharArray.push(lowerCasedCharacters);
   }
   if (pwOptions.pwUppercase == "Y") {
     pwCharArray.push(upperCasedCharacters);
   } 
-  if (pwOptions.pwNumerals== "Y") {
+  if (pwOptions.pwNumerals == "Y") {
     pwCharArray.push(numericCharacters);
   } 
-  if (pwOptions.pwSpecials== "Y") {
+  if (pwOptions.pwSpecials == "Y") {
     pwCharArray.push(specialCharacters);
   } 
 
