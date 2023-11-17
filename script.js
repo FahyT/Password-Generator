@@ -114,35 +114,38 @@ function getPasswordOptions() {
 
   // get user password options and check for nonsense input
     pwOptions.pwLowercase = prompt("Should the password use lower-case characters? Y/N: ").toUpperCase();
-    while (text != "Y" || text != "N") {
+    console.log(pwOptions.pwLowercase);
+    while (pwOptions.pwLowercase != "Y" && pwOptions.pwLowercase != "N") {
       alert("You must enter Y or N. Please try again.");
       pwOptions.pwLowercase = prompt("Should the password use lower-case characters? Y/N: ").toUpperCase();
     }
 
     pwOptions.pwUppercase = prompt("Should the password use upper-case characters? Y/N: ").toUpperCase();
-    while (text != "Y" || text != "N") {
+    while (pwOptions.pwUppercase != "Y" && pwOptions.pwUppercase != "N") {
       alert("You must enter Y or N. Please try again.");
       pwOptions.pwUppercase = prompt("Should the password use upper-case characters? Y/N: ").toUpperCase();
     }
 
     pwOptions.pwNumerals = prompt("Should the password use numerals? Y/N: ").toUpperCase();
-    while (text != "Y" || text != "N") {
+    while ( pwOptions.pwNumerals != "Y" &&  pwOptions.pwNumerals != "N") {
       alert("You must enter Y or N. Please try again.");
       pwOptions.pwNumerals = prompt("Should the password use numerals? Y/N: ").toUpperCase();
     }
 
     pwOptions.pwSpecials = prompt("Should the password use special characters ? Y/N: ").toUpperCase();
-    while (text != "Y" || text != "N") {
+    while (pwOptions.pwSpecials != "Y" && pwOptions.pwSpecials != "N") {
       alert("You must enter Y or N. Please try again.");
       pwOptions.pwSpecials = prompt("Should the password use special characters ? Y/N: ").toUpperCase();
     }
 
      //check at least one character type has been selected
-    Object.values(pwOptions).includes("Y") ? noOptionChosen = false : noOptionChosen = true;
+    if (Object.values(pwOptions).includes("Y")) {
+      noOptionChosen = false;
+    } else {
+      alert("You must pick at least one character type for your password. Please try again.")
+    }
   }
  
-  
-
   return pwOptions;
 
 }
