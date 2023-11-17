@@ -1,6 +1,6 @@
 # Password-Generator
 
-A javascript app that generates a password based on user criteria.
+A javascript app that generates a password based on user input.
 
 ## Description
 
@@ -10,7 +10,7 @@ A link to the website can be found here: https://fahyt.github.io/Password-Genera
 
 ## Installation
 
-THe project is a static webpage hosted on Github Pages so no installation is required apart from a web browser of your choice.
+The project is a static webpage hosted on Github Pages so no installation is required apart from a web browser of your choice.
 
 ## Usage
 
